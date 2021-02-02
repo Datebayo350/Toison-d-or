@@ -1,12 +1,11 @@
 <?php
 namespace ToisonDor\Controller;
 use ToisonDor\Model\ArgaunotModel;
-use PDO;
+require_once '../../vendor/autoload.php';
 
 class ArgaunotController {
-    protected $model;
-        public function test(){
-            $this->model = new ArgaunotModel();
-        }
-}
+    public function __construct() {
 
+        echo "Affiché depuis le construct de Controller";
+     }
+}

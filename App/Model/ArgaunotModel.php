@@ -1,27 +1,43 @@
 <?php
 namespace ToisonDor\Model;
-
-try {
-    require '../vendor/autoload.php';
-}catch( \Error $e){
-    echo $e->getFile();
-}
-
 use ToisonDor\Utils\Database;
+require_once '../../vendor/autoload.php';
 
 class ArgaunotModel {
+    
     protected $id;
     protected $name;
     protected $adjective;
+    private $pdo;
 
     public function __construct(){
-        echo "ça fonctionne bien";
-        $this->name = new Database;
-        var_dump($this->name);
+        $this->pdo = Database::getPDO();
     }
 
+    public function getAllArgaunotes() {
+    
+        $pdo = $this->pdo;
+        $sql = "SELECT * FROM `Argaunotes`";
+        $statement = $pdo->prepare($sql);
+        $statement->execute();
+        // $results = $statement->fetchObject('\ToisonDor\Model\ArgaunotModel');
+        $results = $statement->fetchAll(\PDO::FETCH_CLASS, '\ToisonDor\Model\ArgaunotModel');
+        
+        return $results; 
+
+
+
+    }
+    
+    
+    
+    
 }
 
-$model = new Database();
-// Error: Class 'ToisonDor\Utils\Database' not found in /var/www/html/wild-cod-school/Toison-d-or/ToisonDor/Model/ArgaunotModel.php on line 25
-// Fatal error: Uncaught Error: Class 'ToisonDor\Utils\Database' not found in /var/www/html/wild-cod-school/Toison-d-or/ToisonDor/Model/ArgaunotModel.php on line 25
+$argaunotModel = new ArgaunotModel();
+$resultat = $argaunotModel->getAllArgaunotes();
+print_r($resultat);
+var_dump($resultat);
+
+// var_dump(Database::getPDO());
+

@@ -1,0 +1,5 @@
+#Untracked Files
+php.ini
+composer.lock
+composer.phar 
+/vendor
