@@ -20,7 +20,6 @@ class Database {
                     PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING,
                 )
             );
-            echo "Liaison Database active <br/>";
         }catch (\Exception $e) {
             echo 'Erreur de connexion...<br>';
             echo $e->getMessage().'<br>';

@@ -1,7 +1,7 @@
 <?php
 namespace ToisonDor\Model;
 use ToisonDor\Utils\Database;
-require_once '../../vendor/autoload.php';
+require '../../vendor/autoload.php';
 
 class ArgaunotModel {
     
@@ -9,35 +9,52 @@ class ArgaunotModel {
     protected $name;
     protected $adjective;
     private $pdo;
+    protected $argoName;
+    protected $argoAdjective;
 
     public function __construct(){
         $this->pdo = Database::getPDO();
     }
 
+    /**
+     * Return an array with objects for each row of the Argaunotes table
+     *
+     * @return array 
+     */
     public function getAllArgaunotes() {
     
         $pdo = $this->pdo;
         $sql = "SELECT * FROM `Argaunotes`";
         $statement = $pdo->prepare($sql);
         $statement->execute();
-        // $results = $statement->fetchObject('\ToisonDor\Model\ArgaunotModel');
-        $results = $statement->fetchAll(\PDO::FETCH_CLASS, '\ToisonDor\Model\ArgaunotModel');
-        
+        $results = $statement->fetchAll(\PDO::FETCH_GROUP);
         return $results; 
 
-
-
     }
-    
-    
-    
+
+    /**
+     * Insert a new Argaunot in Database
+     *
+     */
+    public function insertArgaunot() {
+        if(!empty($_POST['charachterName'])){
+            $argoName = $_POST['charachterName'];
+        };
+        if(!empty($_POST['charachterAdjective'])){
+            $argoAdjective = $_POST['charachterAdjective'];
+        };
+        
+
+        $pdo = $this->pdo;
+        $sql = "INSERT INTO Argaunotes(`name`, `adjective`) VALUES (:name, :adjective)";
+        $statement = $pdo->prepare($sql);
+        $statement->bindParam(':name', $argoName);
+        $statement->bindParam(':adjective', $argoAdjective);
+        $results = $statement->execute();
+        dump($statement);
+        dump($results);
+    }
     
 }
 
-$argaunotModel = new ArgaunotModel();
-$resultat = $argaunotModel->getAllArgaunotes();
-print_r($resultat);
-var_dump($resultat);
-
-// var_dump(Database::getPDO());
 

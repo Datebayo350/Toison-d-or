@@ -4,5 +4,9 @@
         "psr-4": {
             "ToisonDor\\": "App/"
         }
+    },
+    "require": {
+        "altorouter/altorouter": "^2.0",
+        "symfony/var-dumper": "^5.2"
     }
 }
