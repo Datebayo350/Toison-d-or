@@ -51,8 +51,9 @@ class ArgaunotModel {
         $statement->bindParam(':name', $argoName);
         $statement->bindParam(':adjective', $argoAdjective);
         $results = $statement->execute();
-        dump($statement);
-        dump($results);
+        $host  = $_SERVER['HTTP_HOST'];
+        $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+        header("Location: http://$host$uri/");
     }
     
 }

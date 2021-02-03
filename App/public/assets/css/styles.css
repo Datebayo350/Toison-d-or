@@ -1,0 +1,110 @@
+body {
+    font-family: 'Amaranth', sans-serif;
+    font-size: 20px;
+    width: 100%;
+    /* position: fixed; */
+}
+
+.header{
+    background-color: #D6D6D6;
+    display: flex;
+    padding: 4rem;
+    justify-content: center;
+    font-size: 2.5rem;
+}
+
+.header img {
+    flex: 2;
+    order: -1;
+    max-width: 96px;
+    /* max-height: 46px; */
+    align-self: center;
+    margin-right: 1rem;
+}
+
+.container {
+    background-image: url(../images/bateau.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    background-position: 0 85%;
+    height: 450px;
+    margin-top: 0.5rem;
+    
+}
+
+.membersOfTheTravel {
+   
+    color: #FFFFFF;
+    font-weight: bold;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  
+}
+
+.membersOfTheTravel h2 {
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.membersList {
+    height: 230px;
+    width:1000px;
+    padding: 0.5rem;
+    font-size: 15px;
+    margin-top: 1rem;
+    display: flex;
+    flex-flow: column wrap;
+}
+.newMemberForm {
+    background-color: rgb(87, 43, 22);
+    border: 4px sienna;
+    color: #FFFFFF;
+    font-weight: bold;
+    border-style: outset;
+    box-shadow: 0px -4px 11px 2px #8d8d8d;
+    position: relative;
+    top: 11.5rem;
+    left: 39.5rem;
+    width: 650px;
+    height: 250px;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    margin-top: 1rem;
+}
+
+.newMemberForm h2 {
+    text-align: center;
+}
+
+.form input,label {
+    display: flex;
+    width:350px;
+    align-self: center;
+    margin-bottom: 1rem;
+}
+
+.form button {
+    width: fit-content;
+    align-self: center;
+    margin-top: 1rem;
+    background-color: sienna;
+    color: #FFFFFF;
+    font-weight: bold;
+    border:0.5px solid white;
+}
+
+.footer {
+    background-color:#F76C6C;
+    padding: 1rem;
+    max-width: 100vw;
+    color: #FFFFFF;
+    text-align: center;
+    margin-top: 18rem;
+    padding: 2rem;
+}
